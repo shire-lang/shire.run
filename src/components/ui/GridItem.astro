@@ -1,3 +1,25 @@
-<div class="p-4 bg-red-500">
-    <slot />
+---
+interface Props {
+  icon: string;
+  title: string;
+  description: string;
+  link: string;
+}
+
+const { icon, title, description, link } = Astro.props as Props;
+---
+
+<div
+  class="p-4 bg-gray-100 rounded-md cursor-pointer hover:bg-gray-200 transition-colors"
+  onclick={`window.location.href = "${link}"`}
+>
+  <img
+    src={icon}
+    alt={title}
+    width={150}
+    height={150}
+    class="rounded-md mx-auto"
+  />
+  <h1 class="text-lg font-bold text-center">{title}</h1>
+  <p class="text-sm text-center">{description}</p>
 </div>
