@@ -1,0 +1,8 @@
+{
+  "title": "Basic Assistant",
+  "description": "Basic Assistant provides the basic abilities of a shire, AutoTest, AI Commit Message, Refactor Code, Terminal, Javadoc."
+  "image": "https://picsum.photos/150/150",
+  "link": "https://shire.run/",
+  "installCmd": "curl --proto '=https' --tlsv1.2 -sSf https://sh.shire.run/ | sh -s -- package basic-assistant",
+  "featured": true
+}
