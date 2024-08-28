@@ -1,0 +1,21 @@
+---
+interface Props {
+  placeholder: string;
+  className: string;
+}
+
+const { className, placeholder } = Astro.props;
+---
+
+<div class:list={["flex items-center gap-2", className]}>
+  <input
+    class="border border-gray-300 rounded-md p-2 flex-1"
+    type="text"
+    placeholder={placeholder}
+  />
+  <button
+    class="bg-blue-500 text-white rounded-md p-2 hover:bg-blue-600 transition-colors"
+  >
+    Search
+  </button>
+</div>

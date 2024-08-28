@@ -1,0 +1,59 @@
+---
+import Input from "../components/ui/Input.astro";
+import Grid from "@/components/ui/Grid.astro";
+import GridItem from "@/components/ui/GridItem.astro";
+import Section from "@/components/ui/Section.astro";
+import Layout from "../layouts/Layout.astro";
+import { getCollection, type CollectionEntry } from "astro:content";
+
+const extensions = await getCollection("extension");
+---
+
+<Layout title="Welcome To Shire Marketplace.">
+  <main class="flex flex-col">
+    <Input
+      className="w-[1500px] mx-auto"
+      placeholder="Search Shire Marketplace"
+    />
+
+    <!-- featured section -->
+    <Section title="Featured">
+      <Grid>
+        {
+          extensions
+            .filter((extension) => extension.data.featured)
+            .map((extension) => (
+              <GridItem
+                icon={extension.data.image}
+                title={extension.data.title}
+                description={extension.data.description}
+                link={extension.data.link}
+              />
+            ))
+        }
+      </Grid>
+    </Section>
+    <!-- featured section -->
+    <Section title="All">
+      <Grid>
+        {
+          extensions.map((extension) => (
+            <GridItem
+              icon={extension.data.image}
+              title={extension.data.title}
+              description={extension.data.description}
+              link={extension.data.link}
+            />
+          ))
+        }
+      </Grid>
+    </Section>
+  </main>
+</Layout>
+<style>
+  main {
+    margin: auto;
+    padding: 1rem;
+    width: 2000px;
+  }
+</style>
