@@ -8,6 +8,7 @@ export const packagesCollection = defineCollection({
     image: z.string(),
     link: z.string(),
     featured: z.boolean().optional(),
+    installCmd: z.string().optional(),
   }),
 });
 

@@ -5,9 +5,10 @@ interface Props {
   description: string;
   link: string;
   type?: "packages" | "snippets" | "usecases";
+  installCmd?: string;
 }
 
-const { icon, title, description, link, type } = Astro.props as Props;
+const { icon, title, description, link, type, installCmd } = Astro.props as Props;
 ---
 
 <div
@@ -29,5 +30,17 @@ const { icon, title, description, link, type } = Astro.props as Props;
     class="rounded-md mx-auto"
   />
   <h1 class="text-lg font-bold text-center">{title}</h1>
-  <p class="text-sm text-center">{description}</p>
+  <p class="text-sm">{description}</p>
+  {
+    !!installCmd && (
+      <div class="mt-4 p-2 bg-gray-200 rounded-md">
+        <pre class="text-xs">{installCmd}</pre>
+      </div>
+    )
+  }
 </div>
+
+
+<style>
+
+</style>
