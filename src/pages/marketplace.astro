@@ -1,60 +1,112 @@
 ---
+import { getCollection, type CollectionEntry } from "astro:content";
+
 import Input from "../components/ui/Input.astro";
 import Grid from "@/components/ui/Grid.astro";
 import GridItem from "@/components/ui/GridItem.astro";
 import Section from "@/components/ui/Section.astro";
 import Layout from "../layouts/Layout.astro";
 import Heading from "../components/layout/Heading.astro";
-import { getCollection, type CollectionEntry } from "astro:content";
+import Scrollable from "@/components/layout/Scrollable.astro";
 
-const extensions = await getCollection("extension");
+const packages = await getCollection("packages");
+const snippets = await getCollection("snippets");
+const usecases = await getCollection("usecases");
+
+const featuredPackages = packages.filter((pkg) => pkg.data.featured);
+const featuredSnippets = snippets.filter((snippet) => snippet.data.featured);
+const featuredUsecases = usecases.filter((usecase) => usecase.data.featured);
+const featured = [
+  ...featuredPackages,
+  ...featuredSnippets,
+  ...featuredUsecases,
+];
 ---
 
 <Layout title="Welcome To Shire Marketplace.">
   <Heading />
-  <main class="flex flex-col">
+  <main>
     <Input
       className="w-[1500px] mx-auto"
       placeholder="Search Shire Marketplace"
     />
-
-    <!-- featured section -->
-    <Section title="Featured">
-      <Grid>
-        {
-          extensions
-            .filter((extension) => extension.data.featured)
-            .map((extension) => (
+    <Scrollable vertical={true}>
+      <!-- featured section -->
+      <Section title="Featured">
+        <Grid>
+          {
+            featured.map((pkg) => (
               <GridItem
-                icon={extension.data.image}
-                title={extension.data.title}
-                description={extension.data.description}
-                link={extension.data.link}
+                type={pkg.collection}
+                icon={pkg.data.image}
+                title={pkg.data.title}
+                description={pkg.data.description}
+                link={pkg.data.link}
               />
             ))
-        }
-      </Grid>
-    </Section>
-    <!-- featured section -->
-    <Section title="All">
-      <Grid>
-        {
-          extensions.map((extension) => (
-            <GridItem
-              icon={extension.data.image}
-              title={extension.data.title}
-              description={extension.data.description}
-              link={extension.data.link}
-            />
-          ))
-        }
-      </Grid>
-    </Section>
+          }
+        </Grid>
+      </Section>
+      <!-- Packages section -->
+      <Section title="Packages">
+        <Grid>
+          {
+            packages.map((pkg) => (
+              <GridItem
+                icon={pkg.data.image}
+                title={pkg.data.title}
+                description={pkg.data.description}
+                link={pkg.data.link}
+              />
+            ))
+          }
+        </Grid>
+      </Section>
+      <Section title="Snippets">
+        <Grid>
+          {
+            snippets.map((snippet) => (
+              <GridItem
+                icon={snippet.data.image}
+                title={snippet.data.title}
+                description={snippet.data.description}
+                link={snippet.data.link}
+              />
+            ))
+          }
+        </Grid>
+      </Section>
+      <Section title="UseCases">
+        <Grid>
+          {
+            usecases.map((usecase) => (
+              <GridItem
+                icon={usecase.data.image}
+                title={usecase.data.title}
+                description={usecase.data.description}
+                link={usecase.data.link}
+              />
+            ))
+          }
+        </Grid>
+      </Section>
+    </Scrollable>
   </main>
 </Layout>
 <style>
   main {
     margin: auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+    height: calc(100vh - 100px);
+    overflow: hidden;
+    gap: 1rem;
+
     padding: 1rem;
+  }
+
+  body {
+    overflow: hidden;
   }
 </style>
