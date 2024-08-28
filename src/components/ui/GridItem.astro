@@ -4,15 +4,23 @@ interface Props {
   title: string;
   description: string;
   link: string;
+  type?: "packages" | "snippets" | "usecases";
 }
 
-const { icon, title, description, link } = Astro.props as Props;
+const { icon, title, description, link, type } = Astro.props as Props;
 ---
 
 <div
-  class="p-4 bg-gray-100 rounded-md cursor-pointer hover:bg-gray-200 transition-colors"
+  class="relative p-4 bg-gray-100 rounded-md cursor-pointer hover:bg-gray-200 transition-colors"
   onclick={`window.location.href = "${link}"`}
 >
+  {
+    !!type && (
+      <div class="absolute top-0 left-0 bg-blue-500 text-white px-2 py-1 rounded-md">
+        {type}
+      </div>
+    )
+  }
   <img
     src={icon}
     alt={title}

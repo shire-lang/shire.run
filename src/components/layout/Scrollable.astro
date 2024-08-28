@@ -1,0 +1,19 @@
+---
+interface Props {
+  horizontal?: boolean;
+  vertical?: boolean;
+}
+
+const { horizontal, vertical } = Astro.props;
+
+const classes = [
+  horizontal ? "overflow-x-auto" : "",
+  vertical ? "overflow-y-auto" : "",
+  horizontal && vertical ? "overflow-auto" : "",
+  !horizontal && !vertical ? "overflow-y-auto" : "",
+];
+---
+
+<div class:list={[classes.join(" "), "pb-10"]}>
+  <slot />
+</div>
