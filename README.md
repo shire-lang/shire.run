@@ -1,4 +1,4 @@
-# Shire Marketplace
+# Shire Run
 
 <p align="center">
   <strong>Streamline your coding agent with Shire.</strong><br />
