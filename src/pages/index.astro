@@ -39,6 +39,7 @@ import Card from "../components/ui/Card.astro";
       <br />
       汲取社区的智慧，简化您的 AI 编码任务和自动化流程。
     </p>
+
     <ul role="list" class="link-card-grid">
       <Card
         href="/marketplace#packages"
@@ -57,6 +58,10 @@ import Card from "../components/ui/Card.astro";
       />
       <Card href="/playground" title="Shire playground" body="Comming soon" />
     </ul>
+    <div class="install">
+      <h2>安装 Shire</h2>
+      <iframe width="245px" height="48px" src="https://plugins.jetbrains.com/embeddable/install/24549"></iframe>
+    </div>
   </main>
 </Layout>
 
@@ -127,6 +132,18 @@ import Card from "../components/ui/Card.astro";
     );
     padding: 1.5rem;
     border-radius: 8px;
+  }
+  .install {
+    margin: 2rem 0;
+    padding: 1.5rem;
+    background: linear-gradient(
+      rgba(var(--accent-light), 66%),
+      rgba(var(--accent-light), 33%)
+    );
+    border-radius: 8px;
+  }
+  .install h2 {
+    padding: 0 0 1rem;
   }
   .instructions code {
     font-size: 0.8em;
