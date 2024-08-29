@@ -27,17 +27,15 @@
   }
 </script>
 
-<div class="relative p-4 bg-gray-100 rounded-md transition-colors">
+<div class="relative p-4 bg-gray-100 rounded-md shadow-md shadow-gray-200 hover:scale-105 hover:shadow-violet-200 hover:shadow-lg transition-transform duration-300 ease-in-out">
   {#if featured}
-    <div
-      class="absolute top-0 left-0 bg-blue-500 text-white text-sm px-2 py-1 rounded-md"
-    >
+    <div class="absolute top-0 left-0 bg-blue-500 text-white text-sm px-2 py-1 rounded-md">
       {type}
     </div>
   {/if}
 
   <img
-    class="mx-auto type-icon"
+    class="mx-auto max-w-20 type-icon"
     src={type === "packages"
       ? packageIcon.src
       : type === "snippets"
@@ -58,10 +56,10 @@
         data-tip={installCmd}
         on:click={() => {
           copy(installCmd);
-          alert("复制成功，请在命令行粘贴。");
+          alert("复制成功，请在终端（Terminal）中粘贴。");
         }}
       >
-        命令行下载
+        终端执行
         <svg
           width="24"
           height="24"
@@ -87,7 +85,7 @@
         class="icon download-icon bg-green-600 rounded-md cursor-pointer flex"
         href={link}
       >
-        网页下载
+        直接下载
         <svg
           width="24"
           height="24"
@@ -113,7 +111,7 @@
     </div>
   {/if}
 
-  {#if type === "usecases"}
+  {#if type === "usecases" || type === "snippets"}
     <div class="h-12"></div>
     <button on:click={onUsecaseShow} class="absolute bottom-2 left-2 right-2 h-10 bg-blue-500 text-white rounded-md p-2 hover:bg-blue-600 transition-colors" popovertarget="snippet-popover">
       Check out

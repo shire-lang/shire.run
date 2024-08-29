@@ -13,7 +13,7 @@
 </script>
 
 <section id={title.toLowerCase()} class="w-[1600px] mx-auto mt-10">
-    <a class="title text-2xl p-4 pl-0 inline-block" href={`#${title.toLowerCase()}`}>{title}</a>
+    <a class="title text-2xl pl-0 inline-block" href={`#${title.toLowerCase()}`}>{title}</a>
     <Grid>
         {#each filteredData as pkg}
             <GridItem
