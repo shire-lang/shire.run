@@ -14,17 +14,15 @@
   import usecaseIcon from "@/assets/icon/usecase.svg";
 </script>
 
-<div class="relative p-4 bg-gray-100 rounded-md transition-colors">
+<div class="relative p-4 bg-gray-100 rounded-md shadow-md shadow-gray-200 hover:scale-105 hover:shadow-violet-200 hover:shadow-lg transition-transform duration-300 ease-in-out">
   {#if featured}
-    <div
-      class="absolute top-0 left-0 bg-blue-500 text-white text-sm px-2 py-1 rounded-md"
-    >
+    <div class="absolute top-0 left-0 bg-blue-500 text-white text-sm px-2 py-1 rounded-md">
       {type}
     </div>
   {/if}
 
   <img
-    class="mx-auto type-icon"
+    class="mx-auto max-w-20 type-icon"
     src={type === "packages"
       ? packageIcon.src
       : type === "snippets"
