@@ -31,7 +31,12 @@ const featured = [
     />
     <Scrollable vertical={true}>
       <!-- featured section -->
-      <Section client:only="svelte" title="Featured" data={featured} />
+      <Section
+        client:only="svelte"
+        title="Featured"
+        data={featured}
+        featured={true}
+      />
 
       <!-- Packages section -->
       <Section client:only="svelte" title="Packages" data={packages} />

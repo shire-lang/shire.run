@@ -1,6 +1,7 @@
 <script lang="ts">
     export let title: string;
     export let data: any;
+    export let featured: boolean = false;
 
     import Grid from "./Grid.svelte";
     import GridItem from "./GridItem.svelte";
@@ -20,7 +21,8 @@
                 title={pkg.data.title}
                 description={pkg.data.description}
                 link={pkg.data.link}
-                featured={true}
+                featured={featured}
+                installCmd={pkg.data.installCmd}
             />
         {/each}
     </Grid>
