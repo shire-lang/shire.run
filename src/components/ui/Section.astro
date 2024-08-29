@@ -7,8 +7,14 @@ const { title } = Astro.props as Props;
 ---
 
 <section id={title.toLowerCase()} class="w-[1600px] mx-auto mt-10">
-  <a class="text-2xl p-4 pl-0 inline-block" href={`#${title.toLowerCase()}`}
-    >{title}</a
-  >
+  <a class="title text-2xl p-4 pl-0 inline-block" href={`#${title.toLowerCase()}`}>{title}</a>
   <slot />
 </section>
+
+<style>
+  .title {
+    font-family: 'Fira Code', 'Courier New', Courier, monospace;
+    color: #1C274C;
+    font-weight: bold;
+  }
+</style>
