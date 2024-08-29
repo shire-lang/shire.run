@@ -12,8 +12,6 @@
   import packageIcon from "@/assets/icon/package.svg";
   import snippetIcon from "@/assets/icon/snippet.svg";
   import usecaseIcon from "@/assets/icon/usecase.svg";
-
-  let snippetsDialogOpen = false;
 </script>
 
 <div class="relative p-4 bg-gray-100 rounded-md transition-colors">
