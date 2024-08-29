@@ -42,6 +42,7 @@ const featured = [
                 title={pkg.data.title}
                 description={pkg.data.description}
                 link={pkg.data.link}
+                featured={true}
               />
             ))
           }
@@ -58,6 +59,7 @@ const featured = [
                 description={pkg.data.description}
                 link={pkg.data.link}
                 installCmd={pkg.data.installCmd}
+                type="packages"
               />
             ))
           }
@@ -72,6 +74,7 @@ const featured = [
                 title={snippet.data.title}
                 description={snippet.data.description}
                 link={snippet.data.link}
+                type="snippets"
               />
             ))
           }
@@ -86,6 +89,7 @@ const featured = [
                 title={usecase.data.title}
                 description={usecase.data.description}
                 link={usecase.data.link}
+                type="usecases"
               />
             ))
           }
