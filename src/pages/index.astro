@@ -3,8 +3,9 @@ import Layout from "../layouts/Layout.astro";
 import Card from "../components/ui/Card.astro";
 import ShireBranding from "../components/ui/ShireBranding.astro";
 
+import { Image, getImage } from "astro:assets";
 import bg from "@/assets/button-install.png";
-import { Image } from "astro:assets";
+const bgImage = await getImage({ src: bg })
 ---
 
 <Layout title="Shire Run - Streamline your coding agent with Shire">
@@ -40,14 +41,12 @@ import { Image } from "astro:assets";
         body="玩出新可能，自动化乐趣，敬请期待"
       />
     </ul>
-    <div class="install">
+    <div class="install" style={`background-image: url('${bgImage.src}')`}>
       <h2>
         <a href="https://plugins.jetbrains.com/plugin/24549-shire--ai-coding-agent-language">
           安装 Shire
         </a>
       </h2>
-      <Image src={bg} alt="Install Shire" >
-      </Image>
     </div>
   </main>
 </Layout>
@@ -117,6 +116,7 @@ import { Image } from "astro:assets";
     margin: 1rem 0;
     background: #000;
     border-radius: 4rem;
+    background-repeat: no-repeat;
   }
   .install h2 {
     height: 4rem;
