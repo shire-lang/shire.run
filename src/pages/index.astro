@@ -2,6 +2,10 @@
 import Layout from "../layouts/Layout.astro";
 import Card from "../components/ui/Card.astro";
 import ShireBranding from "../components/ui/ShireBranding.astro";
+
+import { Image, getImage } from "astro:assets";
+import bg from "@/assets/button-install.png";
+const bgImage = await getImage({ src: bg })
 ---
 
 <Layout title="Shire Run - Streamline your coding agent with Shire">
@@ -37,12 +41,12 @@ import ShireBranding from "../components/ui/ShireBranding.astro";
         body="玩出新可能，自动化乐趣，敬请期待"
       />
     </ul>
-    <div class="install">
-      <h2>安装 Shire</h2>
-      <iframe
-        width="245px"
-        height="48px"
-        src="https://plugins.jetbrains.com/embeddable/install/24549"></iframe>
+    <div class="install" style={`background-image: url('${bgImage.src}')`}>
+      <h2>
+        <a href="https://plugins.jetbrains.com/plugin/24549-shire--ai-coding-agent-language" target="_blank">
+          安装 Shire
+        </a>
+      </h2>
     </div>
   </main>
 </Layout>
@@ -109,16 +113,14 @@ import ShireBranding from "../components/ui/ShireBranding.astro";
     border-radius: 8px;
   }
   .install {
-    margin: 2rem 0;
-    padding: 1.5rem;
-    background: linear-gradient(
-      rgba(var(--accent-light), 66%),
-      rgba(var(--accent-light), 33%)
-    );
-    border-radius: 8px;
+    margin: 1rem 0;
+    border-radius: 4rem;
+    background: #000 no-repeat right;
   }
   .install h2 {
-    padding: 0 0 1rem;
+    height: 4rem;
+    line-height: 4rem;
+    text-align: center;
   }
   .instructions code {
     font-size: 0.8em;

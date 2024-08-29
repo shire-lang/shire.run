@@ -1,0 +1,8 @@
+{
+  "title": "代码问答",
+  "description": "基于关键词的查询扩展方式的代码 RAG，分为 SemanticSearch、SummaryQuestion 两个步骤。",
+  "image": "",
+  "link": "https://static.shire.run/package/semantic-search.zip",
+  "installCmd": "curl --proto '=https' --tlsv1.2 -sSf https://sh.shire.run/ | sh -s -- package semantic-search",
+  "featured": true
+}
