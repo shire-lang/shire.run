@@ -52,18 +52,6 @@ const bgImage = await getImage({ src: bg })
 </Layout>
 
 <style>
-  :root {
-    --accent: 136, 58, 234;
-    --accent-light: 224, 204, 250;
-    --accent-dark: 49, 10, 101;
-    --accent-gradient: linear-gradient(
-      45deg,
-      rgb(var(--accent)),
-      rgb(var(--accent-light)) 30%,
-      white 60%
-    );
-    font-family: 'JetBrains Mono', 'Fira Code', 'Courier New', Courier, monospace;
-  }
   html {
     font-family: system-ui, sans-serif;
     background: #13151a;
@@ -87,7 +75,6 @@ const bgImage = await getImage({ src: bg })
     font-size: 20px;
     line-height: 1.6;
   }
-
   h1 {
     font-size: 4rem;
     font-weight: 700;

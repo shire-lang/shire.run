@@ -10,18 +10,18 @@ const { title } = Astro.props;
 
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="description" content="Astro description" />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/png" href={Logo.src} />
-    <link href="https://fonts.cdnfonts.com/css/jetbrains-mono" rel="stylesheet">
-    <meta name="generator" content={Astro.generator} />
-    <title>{title}</title>
-  </head>
-  <body>
-    <slot />
-  </body>
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="description" content="Astro description"/>
+  <meta name="viewport" content="width=device-width"/>
+  <link rel="icon" type="image/png" href={Logo.src}/>
+  <link href="https://fonts.cdnfonts.com/css/jetbrains-mono" rel="stylesheet">
+  <meta name="generator" content={Astro.generator}/>
+  <title>{title}</title>
+</head>
+<body>
+<slot/>
+</body>
 </html>
 
 <style is:global>
@@ -32,8 +32,16 @@ const { title } = Astro.props;
     padding: 1rem;
     border-radius: 1rem;
   }
-
   :root {
+    --accent: 136, 58, 234;
+    --accent-light: 224, 204, 250;
+    --accent-dark: 49, 10, 101;
+    --accent-gradient: linear-gradient(
+      45deg,
+      rgb(var(--accent)),
+      rgb(var(--accent-light)) 30%,
+      white 60%
+    );
     --astro-code-color-text: azure;
     --astro-code-color-background: black;
     --astro-code-token-constant: plum;
@@ -45,5 +53,6 @@ const { title } = Astro.props;
     --astro-code-token-string-expression: burlywood;
     --astro-code-token-punctuation: linen;
     --astro-code-token-link: honeydew;
+    font-family: 'JetBrains Mono', 'Fira Code', 'Courier New', Courier, monospace;
   }
 </style>
