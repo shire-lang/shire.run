@@ -53,6 +53,7 @@ const featured = [
       <Section client:only="svelte" title="UseCases" data={usecases} />
     </Scrollable>
 
+    <!-- UGLY AS FUDGE, BUT IT WORKS -->
     {
       usecases.map((usecase) => {
         const { Content } = (usecase as any).rendered;
