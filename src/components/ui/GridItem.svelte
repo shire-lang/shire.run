@@ -14,7 +14,6 @@
   import snippetIcon from "@/assets/icon/snippet.svg";
   import usecaseIcon from "@/assets/icon/usecase.svg";
 
-
   function onUsecaseShow() {
     const usecase = document.getElementById(id);
     const usecaseContainer = document.getElementById("usecase-container");
@@ -124,19 +123,19 @@
         <button class="popover-close" on:click={() => {
           const popover = document.getElementById("snippet-popover");
           if (popover) {
-          popover.style.display = "none";
+            popover.style.display = "none";
           }
         }}>X</button>
       </div>
       <div class="popover-content">
-        <div class="w-[1200px] h-[700px] bg-gray-100" id="usecase-container">
+        <div class="w-[1200px] h-[700px] bg-gray-100 markdown" id="usecase-container">
         </div>
       </div>
     </div>
   {/if}
 </div>
 
-<style>
+<style is:global>
   #snippet-popover {
     z-index: 10;
     border: #272b45 4px solid;
@@ -149,7 +148,8 @@
     background-color: rgba(4, 74, 48, 0.66);
     padding: 0 1rem;
   }
-  #snippet-popover .popover-title {
+  #snippet-popover .popover-title,
+  #snippet-popover button {
     line-height: 40px;
     color: #fff;
   }
