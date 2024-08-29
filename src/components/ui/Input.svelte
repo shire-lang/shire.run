@@ -11,13 +11,18 @@
     }
 </script>
 
-<div class={`flex items-center gap-2 ${className}`}>
+<form class={`flex items-center gap-2 ${className}`}>
     <input
       id="input-search"
       class="border border-gray-300 rounded-md p-2 flex-1"
       type="text"
       placeholder={placeholder}
       bind:value={inputValue}
+      on:keyup={(e) => {
+        if (e.key === "Enter") {
+          handleSearch();
+        }
+      }}
     />
     <button
       id="btn-search"
@@ -26,5 +31,5 @@
     >
       Search
     </button>
-</div>
+</form>
 
