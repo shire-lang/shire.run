@@ -12,6 +12,20 @@
   import packageIcon from "@/assets/icon/package.svg";
   import snippetIcon from "@/assets/icon/snippet.svg";
   import usecaseIcon from "@/assets/icon/usecase.svg";
+
+  import tippy from "tippy.js";
+  import "tippy.js/dist/tippy.css";
+
+  document.addEventListener("astro:page-load", () => {
+    // query data-tip attribute and create tippy
+    const tips = document.querySelectorAll("[data-tip]");
+    tips.forEach((t) => {
+      tippy(t, {
+        // content: t.attributes.getNamedItem("tip")?.textContent || "",
+        content: t.attributes.getNamedItem("data-tip")?.textContent || "",
+      });
+    });
+  });
 </script>
 
 <div class="relative p-4 bg-gray-100 rounded-md transition-colors">
@@ -42,6 +56,7 @@
     <div class="buttons mt-4 flex flex-grow justify-center">
       <button
         class="icon copy-icon bg-gray-500 rounded-md cursor-pointer flex"
+        data-tip={installCmd}
         on:click={() => {
           copy(installCmd);
           alert("复制成功，请在命令行粘贴。");
