@@ -44,7 +44,7 @@
         class="icon copy-icon bg-gray-500 rounded-md cursor-pointer flex"
         on:click={() => {
           copy(installCmd);
-          alert("复制成功");
+          alert("复制成功，请在命令行粘贴。");
         }}
       >
         命令行下载
