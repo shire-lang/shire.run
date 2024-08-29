@@ -62,6 +62,12 @@ const bgImage = await getImage({ src: bg })
       rgb(var(--accent-light)) 30%,
       white 60%
     );
+    --brand-gradient: linear-gradient(
+      45deg,
+      rgb(var(--accent-light)) 10%,
+      rgb(var(--accent)),
+      var(--accent-dark)
+    );
     font-family: 'JetBrains Mono', 'Fira Code', 'Courier New', Courier, monospace;
   }
   html {
@@ -96,10 +102,10 @@ const bgImage = await getImage({ src: bg })
     margin-bottom: 1em;
   }
   .text-gradient {
-    background-image: var(--accent-gradient);
+    background-image: var(--brand-gradient);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    background-size: 400%;
+    background-size: 100%;
     background-position: 0%;
   }
   .instructions {

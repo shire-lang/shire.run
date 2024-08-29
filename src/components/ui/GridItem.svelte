@@ -98,10 +98,10 @@
     </div>
   {/if}
 
-  {#if type === "usecases"}
+  {#if type === "usecases" || type === "snippets"}
     <div class="h-12"></div>
     <button class="absolute bottom-2 left-2 right-2 h-10 bg-blue-500 text-white rounded-md p-2 hover:bg-blue-600 transition-colors" popovertarget="snippet-popover">
-      Check out
+      See see
     </button>
 
     <div popover="auto" id="snippet-popover">
