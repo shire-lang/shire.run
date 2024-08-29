@@ -17,8 +17,8 @@ export const snippetsCollection = defineCollection({
   schema: z.object({
     title: z.string(),
     description: z.string(),
-    image: z.string(),
-    link: z.string(),
+    image: z.string().optional(),
+    link: z.string().optional(),
     featured: z.boolean().optional(),
   }),
 });
@@ -28,8 +28,8 @@ export const usecasesCollection = defineCollection({
   schema: z.object({
     title: z.string(),
     description: z.string(),
-    image: z.string(),
-    link: z.string(),
+    image: z.string().optional(),
+    link: z.string().optional(),
     featured: z.boolean().optional(),
   }),
 });

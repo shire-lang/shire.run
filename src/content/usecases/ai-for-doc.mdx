@@ -1,0 +1,60 @@
+---
+title: AI 增强技术文档写作
+description: 功能示例：生成自定义风格注释、借助 pipeline 函数，自动生成文档文件、结合 RAG 技术，自动化分析文档。
+featured: true
+---
+
+
+
+在这里，我们定义了一个变量 `contextVariable`，它的值是读取所有的 `ContextVariable.kt` 文件的结果。在运行的时候，Shire
+会将这个变量的值
+编译到 prompt 中，并发送给 LLM，以生成对应的文档。当 LLM 生成的文档返回后，我们会解析出其中的代码块，并保存到指定的文件中。
+
+除此，当代码库中包含有测试用例时，我们就可以配置示例作为代码示例：
+
+```shire
+---
+name: "Hobbit Hole"
+description: "Here is a description of the action."
+interaction:  RunPanel
+variables:
+  "currentCode": /HobbitHole\.kt/ { cat }
+  "testCode": /ShireCompileTest\.kt/ { cat }
+onStreamingEnd: { saveFile("docs/shire/shire-hobbit-hole.md")  }
+---
+
+根据如下的代码用例、文档，编写对应的 HobbitHole 相关信息的 markdown 文档。
+...
+
+```
+
+当然了，也可以直接读取原来的文档，然后进行更新。
+
+### 示例：结合 RAG 技术，自动化分析文档
+
+对于更复杂的场景，则可以直接结合 RAG 与 Shire 的 workflow 来实现。如下所示：
+
+```shire
+---
+name: "Semantic Search"
+variables:
+  "code": /.*.kt/ { splitting | embedding }
+  "input": "博客创建流程"
+  "lang": "java"
+afterStreaming: {
+    case condition {
+      default { searching($output) | execute("SummaryQuestion.shire", $output, $input, $lang) }
+    }
+ }
+---
+You are a coding assistant who helps the user answer questions about code in their workspace by providing a list of
+ relevant keywords they can search for to answer the question.
+...
+```
+
+上述代码中，我们定义了一个变量 `code`，它的值是对所有的 `*.kt` 文件进行分割，并进行向量化。而这里的的 `input` 则是用户输入的问题，
+用于搜索相关的文档内容。
+
+在执行时，会将用户的问题发送给
+LLM，由其生成关键词，然后在本地进行检索，最后，将结果发送给下一个流程，即 `SummaryQuestion.shire`。
+在 `SummaryQuestion.shire` 中，会将检索结果进行总结，然后生成对应的文档。

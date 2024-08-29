@@ -3,7 +3,7 @@
   export let id: string;
   export let title: string;
   export let description: string;
-  export let link: string;
+  export let link: string | undefined;
   export let type: "packages" | "snippets" | "usecases";
   export let installCmd: string | undefined = undefined;
   export let featured: boolean | undefined = undefined;
@@ -81,33 +81,35 @@
           />
         </svg>
       </button>
-      <a
-        class="icon download-icon bg-green-600 rounded-md cursor-pointer flex"
-        href={link}
-      >
-        直接下载
-        <svg
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
+      {#if link}
+        <a
+          class="icon download-icon bg-green-600 rounded-md cursor-pointer flex"
+          href={link}
         >
-          <path
-            d="M12 4L12 14M12 14L15 11M12 14L9 11"
-            stroke="#1C274C"
-            stroke-width="1.5"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          />
-          <path
-            d="M12 20C7.58172 20 4 16.4183 4 12M20 12C20 14.5264 18.8289 16.7792 17 18.2454"
-            stroke="#1C274C"
-            stroke-width="1.5"
-            stroke-linecap="round"
-          />
-        </svg>
-      </a>
+          直接下载
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M12 4L12 14M12 14L15 11M12 14L9 11"
+              stroke="#1C274C"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M12 20C7.58172 20 4 16.4183 4 12M20 12C20 14.5264 18.8289 16.7792 17 18.2454"
+              stroke="#1C274C"
+              stroke-width="1.5"
+              stroke-linecap="round"
+            />
+          </svg>
+        </a>
+      {/if}
     </div>
   {/if}
 
