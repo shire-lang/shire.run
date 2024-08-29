@@ -1,54 +1,38 @@
----
-import { Image } from "astro:assets";
+<script lang="ts">
+    // export let icon: string;
+    export let title: string;
+    export let description: string;
+    export let link: string;
+    export let type: "packages" | "snippets" | "usecases";
+    export let installCmd: string | undefined = undefined;
+    export let featured: boolean | undefined = undefined;
 
-import packageIcon from "@/assets/icon/package.svg";
-import snippetIcon from "@/assets/icon/snippet.svg";
-import usecaseIcon from "@/assets/icon/usecase.svg";
+    import copy from "copy-text-to-clipboard";
 
-interface Props {
-  icon: string;
-  title: string;
-  description: string;
-  link: string;
-  type: "packages" | "snippets" | "usecases";
-  installCmd?: string;
-  featured?: boolean;
-}
+    import packageIcon from "@/assets/icon/package.svg";
+    import snippetIcon from "@/assets/icon/snippet.svg";
+    import usecaseIcon from "@/assets/icon/usecase.svg";
+</script>
 
-const { icon, title, description, link, type, featured, installCmd } =
-  Astro.props as Props;
----
 
 <div class="relative p-4 bg-gray-100 rounded-md transition-colors">
-  {
-    !!featured && (
-      <div class="absolute top-0 left-0 bg-blue-500 text-white text-sm px-2 py-1 rounded-md">
+    {#if featured}
+    <div class="absolute top-0 left-0 bg-blue-500 text-white text-sm px-2 py-1 rounded-md">
         {type}
       </div>
-    )
-  }
-  <Image
-    class="mx-auto"
-    src={type === "packages"
-      ? packageIcon
-      : type === "snippets"
-        ? snippetIcon
-        : type === "usecases"
-          ? usecaseIcon
-          : packageIcon}
-    alt="logo"
-    width={150}
-    height={150}
-  />
-  <h1 class="text-lg font-bold text-center">{title}</h1>
-  <p class="text-sm">{description}</p>
-  {
-    !!installCmd && (
-      <div class="buttons mt-4 flex flex-grow justify-center">
+    {/if}
+
+    <img class="mx-auto" src={type === "packages" ? packageIcon.src : type === "snippets" ? snippetIcon.src : type === "usecases" ? usecaseIcon.src : packageIcon.src} alt="logo" width={150} height={150} />
+    <h1 class="text-lg font-bold text-center">{title}</h1>
+    <p class="text-sm">{description}</p>
+    {#if installCmd}
+    <div class="buttons mt-4 flex flex-grow justify-center">
         <button
-          id="btn-copy-cmd"
           class="icon copy-icon bg-gray-500 rounded-md cursor-pointer flex"
-          data-cmd={installCmd}
+          on:click={() => {
+            copy(installCmd);
+            alert("复制成功");
+          }}
         >
           命令行下载
           <svg
@@ -100,37 +84,5 @@ const { icon, title, description, link, type, featured, installCmd } =
           </svg>
         </a>
       </div>
-    )
-  }
+    {/if}
 </div>
-
-<script>
-  import copy from "copy-text-to-clipboard";
-
-  const btnCopyCmd = document.getElementById("btn-copy-cmd");
-  btnCopyCmd.addEventListener("click", () => {
-    const cmd = btnCopyCmd.getAttribute("data-cmd");
-    copy(cmd);
-    alert("复制成功");
-  });
-</script>
-
-<style>
-  .buttons {
-    font-size: 0.6rem;
-    height: 24px;
-    line-height: 24px;
-    justify-content: space-between;
-  }
-
-  .icon {
-    padding: 0 1rem;
-    color: #fff;
-  }
-  .icon svg {
-    width: 16px;
-    height: 16px;
-    margin-left: 0.5rem;
-    margin-top: 4px;
-  }
-</style>

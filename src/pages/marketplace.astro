@@ -1,10 +1,8 @@
 ---
 import { getCollection, type CollectionEntry } from "astro:content";
 
-import Input from "../components/ui/Input.astro";
-import Grid from "@/components/ui/Grid.astro";
-import GridItem from "@/components/ui/GridItem.astro";
-import Section from "@/components/ui/Section.astro";
+import Input from "../components/ui/Input.svelte";
+import Section from "@/components/ui/Section.svelte";
 import Layout from "../layouts/Layout.astro";
 import Heading from "../components/layout/Heading.astro";
 import Scrollable from "@/components/layout/Scrollable.astro";
@@ -27,74 +25,22 @@ const featured = [
   <Heading />
   <main>
     <Input
+      client:only="svelte"
       className="w-[1500px] mx-auto"
       placeholder="Search Shire Run"
     />
     <Scrollable vertical={true}>
       <!-- featured section -->
-      <Section title="Featured">
-        <Grid>
-          {
-            featured.map((pkg) => (
-              <GridItem
-                type={pkg.collection}
-                icon={pkg.data.image}
-                title={pkg.data.title}
-                description={pkg.data.description}
-                link={pkg.data.link}
-                featured={true}
-              />
-            ))
-          }
-        </Grid>
-      </Section>
+      <Section client:only="svelte" title="Featured" data={featured} />
+
       <!-- Packages section -->
-      <Section title="Packages">
-        <Grid>
-          {
-            packages.map((pkg) => (
-              <GridItem
-                icon={pkg.data.image}
-                title={pkg.data.title}
-                description={pkg.data.description}
-                link={pkg.data.link}
-                installCmd={pkg.data.installCmd}
-                type="packages"
-              />
-            ))
-          }
-        </Grid>
-      </Section>
-      <Section title="Snippets">
-        <Grid>
-          {
-            snippets.map((snippet) => (
-              <GridItem
-                icon={snippet.data.image}
-                title={snippet.data.title}
-                description={snippet.data.description}
-                link={snippet.data.link}
-                type="snippets"
-              />
-            ))
-          }
-        </Grid>
-      </Section>
-      <Section title="UseCases">
-        <Grid>
-          {
-            usecases.map((usecase) => (
-              <GridItem
-                icon={usecase.data.image}
-                title={usecase.data.title}
-                description={usecase.data.description}
-                link={usecase.data.link}
-                type="usecases"
-              />
-            ))
-          }
-        </Grid>
-      </Section>
+      <Section client:only="svelte" title="Packages" data={packages} />
+
+      <!-- Snippets section -->
+      <Section client:only="svelte" title="Snippets" data={snippets} />
+
+      <!-- UseCases section -->
+      <Section client:only="svelte" title="UseCases" data={usecases} />
     </Scrollable>
   </main>
 </Layout>
