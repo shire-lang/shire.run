@@ -1,0 +1,14 @@
+# EditorConfig File
+root = true
+
+[*]
+indent_style = space
+indent_size = 2
+
+[*.astro]
+indent_style = space
+indent_size = 2
+
+[*.svelte]
+indent_style = space
+indent_size = 2

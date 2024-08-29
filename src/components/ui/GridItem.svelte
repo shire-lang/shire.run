@@ -113,7 +113,9 @@
 
   {#if type === "usecases"}
     <div class="h-12"></div>
-    <button on:click={onUsecaseShow} class="absolute bottom-2 left-2 right-2 h-10 bg-blue-500 text-white rounded-md p-2 hover:bg-blue-600 transition-colors" popovertarget="snippet-popover">
+    <button on:click={onUsecaseShow}
+            class="absolute bottom-2 left-2 right-2 h-10 bg-blue-500 text-white rounded-md p-2 hover:bg-blue-600 transition-colors"
+            popovertarget="snippet-popover">
       Check out
     </button>
 
@@ -125,7 +127,8 @@
           if (popover) {
             popover.style.display = "none";
           }
-        }}>X</button>
+        }}>X
+        </button>
       </div>
       <div class="popover-content">
         <div class="w-[1200px] h-[700px] bg-gray-100 markdown" id="usecase-container">
@@ -135,7 +138,7 @@
   {/if}
 </div>
 
-<style is:global>
+<style>
   #snippet-popover {
     z-index: 10;
     border: #272b45 4px solid;
@@ -143,20 +146,24 @@
     overflow: hidden;
     padding: 0;
   }
+
   #snippet-popover .popover-head {
     height: 40px;
     background-color: rgba(4, 74, 48, 0.66);
     padding: 0 1rem;
   }
+
   #snippet-popover .popover-title,
   #snippet-popover button {
     line-height: 40px;
     color: #fff;
   }
+
   #snippet-popover #usecase-container {
     padding: 1rem;
     overflow-y: scroll;
   }
+
   .buttons {
     font-size: 0.6rem;
     height: 24px;
@@ -172,6 +179,7 @@
     padding: 0 1rem;
     color: #fff;
   }
+
   .icon svg {
     width: 16px;
     height: 16px;
