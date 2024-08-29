@@ -1,7 +1,6 @@
 {
   "title": "基础 AI 辅助编程",
   "description": "基础 AI 编码能力包：自动化单测、提交信息生成、代码重构、AI 终端命令生成、Java 注释生成。",
-  "image": "https://picsum.photos/150/150",
   "link": "https://static.shire.run/package/basic-assistant.zip",
   "installCmd": "curl --proto '=https' --tlsv1.2 -sSf https://sh.shire.run/ | sh -s -- package basic-assistant",
   "featured": true

@@ -5,8 +5,8 @@ export const packagesCollection = defineCollection({
   schema: z.object({
     title: z.string(),
     description: z.string(),
-    image: z.string(),
-    link: z.string(),
+    image: z.string().optional(),
+    link: z.string().optional(),
     featured: z.boolean().optional(),
     installCmd: z.string().optional(),
   }),

@@ -116,7 +116,7 @@
     <button on:click={onUsecaseShow}
             class="absolute bottom-2 left-2 right-2 h-10 bg-blue-500 text-white rounded-md p-2 hover:bg-blue-600 transition-colors"
             popovertarget="snippet-popover">
-      Check out
+      查看
     </button>
 
     <div popover="auto" id="snippet-popover" class="shadow-2xl">
@@ -165,9 +165,9 @@
   }
 
   .buttons {
-    font-size: 0.6rem;
-    height: 24px;
-    line-height: 24px;
+    font-size: 0.7rem;
+    height: 40px;
+    line-height: 40px;
     justify-content: space-between;
   }
 
@@ -184,6 +184,6 @@
     width: 16px;
     height: 16px;
     margin-left: 0.5rem;
-    margin-top: 4px;
+    margin-top: 12px;
   }
 </style>
