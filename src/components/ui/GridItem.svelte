@@ -12,6 +12,8 @@
   import packageIcon from "@/assets/icon/package.svg";
   import snippetIcon from "@/assets/icon/snippet.svg";
   import usecaseIcon from "@/assets/icon/usecase.svg";
+
+  let snippetsDialogOpen = false;
 </script>
 
 <div class="relative p-4 bg-gray-100 rounded-md transition-colors">
@@ -96,6 +98,19 @@
           />
         </svg>
       </a>
+    </div>
+  {/if}
+
+  {#if type === "usecases"}
+    <div class="h-12"></div>
+    <button class="absolute bottom-2 left-2 right-2 h-10 bg-blue-500 text-white rounded-md p-2 hover:bg-blue-600 transition-colors" popovertarget="snippet-popover">
+      Check out
+    </button>
+
+    <div popover="auto" id="snippet-popover">
+      <div class="w-[500px] h-[700px] bg-black text-white shadow-md">
+        <h1>Snippets</h1>
+      </div>
     </div>
   {/if}
 </div>
