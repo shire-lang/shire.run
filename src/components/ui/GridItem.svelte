@@ -16,7 +16,6 @@
 
 
   function onUsecaseShow() {
-    console.log("usecase show");
     const usecase = document.getElementById(id);
     const usecaseContainer = document.getElementById("usecase-container");
     if (usecaseContainer && usecase) {
@@ -119,14 +118,45 @@
       Check out
     </button>
 
-    <div popover="auto" id="snippet-popover">
-      <div class="w-[1200px] h-[700px] bg-gray-100 shadow-lg p-4" id="usecase-container">
+    <div popover="auto" id="snippet-popover" class="shadow-2xl">
+      <div class="popover-head flex flex-grow justify-between">
+        <div class="popover-title font-bold">Use Case</div>
+        <button class="popover-close" on:click={() => {
+          const popover = document.getElementById("snippet-popover");
+          if (popover) {
+          popover.style.display = "none";
+          }
+        }}>X</button>
+      </div>
+      <div class="popover-content">
+        <div class="w-[1200px] h-[700px] bg-gray-100" id="usecase-container">
+        </div>
       </div>
     </div>
   {/if}
 </div>
 
 <style>
+  #snippet-popover {
+    z-index: 10;
+    border: #272b45 4px solid;
+    border-radius: 8px;
+    overflow: hidden;
+    padding: 0;
+  }
+  #snippet-popover .popover-head {
+    height: 40px;
+    background-color: rgba(4, 74, 48, 0.66);
+    padding: 0 1rem;
+  }
+  #snippet-popover .popover-title {
+    line-height: 40px;
+    color: #fff;
+  }
+  #snippet-popover #usecase-container {
+    padding: 1rem;
+    overflow-y: scroll;
+  }
   .buttons {
     font-size: 0.6rem;
     height: 24px;
