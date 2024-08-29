@@ -43,10 +43,10 @@
         data-tip={installCmd}
         on:click={() => {
           copy(installCmd);
-          alert("复制成功，请在命令行粘贴。");
+          alert("复制成功，请在终端（Terminal）中粘贴。");
         }}
       >
-        命令行下载
+        终端执行
         <svg
           width="24"
           height="24"
@@ -72,7 +72,7 @@
         class="icon download-icon bg-green-600 rounded-md cursor-pointer flex"
         href={link}
       >
-        网页下载
+        直接下载
         <svg
           width="24"
           height="24"
