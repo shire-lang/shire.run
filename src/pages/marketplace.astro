@@ -9,7 +9,12 @@ import Scrollable from "@/components/layout/Scrollable.astro";
 
 const packages = await getCollection("packages");
 const snippets = await getCollection("snippets");
-const usecases = await getCollection("usecases");
+const usecases = await Promise.all(
+  (await getCollection("usecases")).map(async (it) => ({
+    ...it,
+    rendered: await it.render(),
+  }))
+);
 
 const featuredPackages = packages.filter((pkg) => pkg.data.featured);
 const featuredSnippets = snippets.filter((snippet) => snippet.data.featured);
@@ -47,6 +52,17 @@ const featured = [
       <!-- UseCases section -->
       <Section client:only="svelte" title="UseCases" data={usecases} />
     </Scrollable>
+
+    {
+      usecases.map((usecase) => {
+        const { Content } = (usecase as any).rendered;
+        return (
+          <div id={usecase.id} class="hidden">
+            <Content />
+          </div>
+        );
+      })
+    }
   </main>
 </Layout>
 <style>

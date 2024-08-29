@@ -24,7 +24,7 @@ export const snippetsCollection = defineCollection({
 });
 
 export const usecasesCollection = defineCollection({
-  type: "data",
+  type: "content",
   schema: z.object({
     title: z.string(),
     description: z.string(),

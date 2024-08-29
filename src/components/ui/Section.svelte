@@ -17,6 +17,7 @@
     <Grid>
         {#each filteredData as pkg}
             <GridItem
+                id={pkg.id}
                 type={pkg.collection}
                 title={pkg.data.title}
                 description={pkg.data.description}

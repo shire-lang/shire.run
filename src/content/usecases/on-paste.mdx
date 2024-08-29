@@ -1,0 +1,32 @@
+---
+title: AI 增强技术文档写作
+description: 功能示例：生成自定义风格注释、借助 pipeline 函数，自动生成文档文件、结合 RAG 技术，自动化分析文档。
+image: ""
+link: "https://shire.run/"
+featured: true
+---
+
+`OnPaste` 可以在用户粘贴代码时，根据上下文，对用户粘贴的代码进行优化。
+
+```shire
+---
+name: "PasteMaster"
+interaction: OnPaste
+---
+
+优化待复制代码。根据当前的代码上下文（光标前后），对用户复制的代码，生成新的代码。
+
+光标前的代码：
+
+$beforeCursor
+
+光标后的代码：
+
+$afterCursor
+
+用户复制的代码：
+
+$text
+
+只根据上下文，优化用户复制的代码
+```

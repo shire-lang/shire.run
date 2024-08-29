@@ -1,5 +1,6 @@
 <script lang="ts">
   // export let icon: string;
+  export let id: string;
   export let title: string;
   export let description: string;
   export let link: string;
@@ -12,6 +13,18 @@
   import packageIcon from "@/assets/icon/package.svg";
   import snippetIcon from "@/assets/icon/snippet.svg";
   import usecaseIcon from "@/assets/icon/usecase.svg";
+
+
+  function onUsecaseShow() {
+    console.log("usecase show");
+    const usecase = document.getElementById(id);
+    const usecaseContainer = document.getElementById("usecase-container");
+    if (usecaseContainer && usecase) {
+      usecaseContainer.innerHTML = "";
+      const content = usecase.cloneNode(true).childNodes;
+      usecaseContainer.append(...content);
+    }
+  }
 </script>
 
 <div class="relative p-4 bg-gray-100 rounded-md transition-colors">
@@ -102,13 +115,12 @@
 
   {#if type === "usecases"}
     <div class="h-12"></div>
-    <button class="absolute bottom-2 left-2 right-2 h-10 bg-blue-500 text-white rounded-md p-2 hover:bg-blue-600 transition-colors" popovertarget="snippet-popover">
+    <button on:click={onUsecaseShow} class="absolute bottom-2 left-2 right-2 h-10 bg-blue-500 text-white rounded-md p-2 hover:bg-blue-600 transition-colors" popovertarget="snippet-popover">
       Check out
     </button>
 
     <div popover="auto" id="snippet-popover">
-      <div class="w-[500px] h-[700px] bg-black text-white shadow-md">
-        <h1>Snippets</h1>
+      <div class="w-[1200px] h-[700px] bg-gray-100 shadow-lg p-4" id="usecase-container">
       </div>
     </div>
   {/if}
