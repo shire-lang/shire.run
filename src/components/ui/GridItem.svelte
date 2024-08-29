@@ -24,7 +24,7 @@
   {/if}
 
   <img
-    class="mx-auto"
+    class="mx-auto type-icon"
     src={type === "packages"
       ? packageIcon.src
       : type === "snippets"
@@ -33,10 +33,10 @@
           ? usecaseIcon.src
           : packageIcon.src}
     alt="logo"
-    width={150}
-    height={150}
+    width={64}
+    height={64}
   />
-  <h1 class="text-lg font-bold text-center">{title}</h1>
+  <h2 class="text-lg font-bold text-left">{title}</h2>
   <p class="text-sm">{description}</p>
   {#if installCmd}
     <div class="buttons mt-4 flex flex-grow justify-center">
@@ -120,6 +120,10 @@
     height: 24px;
     line-height: 24px;
     justify-content: space-between;
+  }
+
+  .type-icon {
+    margin: 2.5rem auto 1rem;
   }
 
   .icon {
