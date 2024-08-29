@@ -7,9 +7,6 @@ import mdx from "@astrojs/mdx";
 // https://astro.build/config
 export default defineConfig({
   site: 'http://shire.run/',
-  integrations: [tailwind(), svelte(), mdx({
-    syntaxHighlight: 'shiki',
-    shikiConfig: { theme: 'dracula' },
-    gfm: true,
-  })]
+  markdown: { shikiConfig: { theme: 'css-variables' } },
+  integrations: [tailwind(), svelte(), mdx()]
 });

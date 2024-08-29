@@ -23,3 +23,27 @@ const { title } = Astro.props;
     <slot />
   </body>
 </html>
+
+<style is:global>
+  pre {
+    max-width: max-content;
+    margin: 1rem auto;
+    font-size: 0.8rem;
+    padding: 1rem;
+    border-radius: 1rem;
+  }
+
+  :root {
+    --astro-code-color-text: azure;
+    --astro-code-color-background: black;
+    --astro-code-token-constant: plum;
+    --astro-code-token-string: orchid;
+    --astro-code-token-comment: salmon;
+    --astro-code-token-keyword: powderblue;
+    --astro-code-token-parameter: seashell;
+    --astro-code-token-function: dodgerblue;
+    --astro-code-token-string-expression: burlywood;
+    --astro-code-token-punctuation: linen;
+    --astro-code-token-link: honeydew;
+  }
+</style>
