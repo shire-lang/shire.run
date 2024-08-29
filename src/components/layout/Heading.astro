@@ -3,11 +3,25 @@ import logo from "@/assets/logo.svg";
 import { Image } from "astro:assets";
 ---
 
-<div class="flex flex-col gap-4 p-4">
+<header class="header flex flex-row gap-4 p-4 justify-between">
   <a href="/">
     <h1 class="text-2xl font-bold flex items-center gap-2">
-        <Image class="inline-block" src={logo} alt="logo" width={40} height={40}/>
+        <Image class="inline-block" src={logo} alt="logo" width={40} height={40} />
         Shire Run
     </h1>
   </a>
   <div class="flex flex-col gap-4">
+    <a href="https://github.com/shire-lang/shire-run" target="_blank" class="text-white">GitHub</a>
+  </div>
+</header>
+
+<style>
+  header {
+    background-color: #1C274C;
+    height: 64px;
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.2);
+  }
+  h1 {
+    color: white;
+  }
+</style>
