@@ -4,7 +4,7 @@
   export let title: string;
   export let description: string;
   export let link: string | undefined;
-  export let type: "packages" | "snippets" | "usecases";
+  export let type: "suites" | "snippets" | "usecases";
   export let installCmd: string | undefined = undefined;
   export let featured: boolean | undefined = undefined;
 
@@ -34,7 +34,7 @@
 
   <img
     class="mx-auto max-w-20 type-icon"
-    src={type === "packages"
+    src={type === "suites"
       ? packageIcon.src
       : type === "snippets"
         ? snippetIcon.src

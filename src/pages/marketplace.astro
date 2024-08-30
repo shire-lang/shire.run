@@ -7,7 +7,7 @@ import Layout from "../layouts/Layout.astro";
 import Heading from "../components/layout/Heading.astro";
 import Scrollable from "@/components/layout/Scrollable.astro";
 
-const packages = await getCollection("packages");
+const suites = await getCollection("suites");
 const snippets = await getCollection("snippets");
 const usecases = await Promise.all(
   (await getCollection("usecases")).map(async (it) => ({
@@ -16,11 +16,11 @@ const usecases = await Promise.all(
   }))
 );
 
-const featuredPackages = packages.filter((pkg) => pkg.data.featured);
+const featuredSuites = suites.filter((pkg) => pkg.data.featured);
 const featuredSnippets = snippets.filter((snippet) => snippet.data.featured);
 const featuredUsecases = usecases.filter((usecase) => usecase.data.featured);
 const featured = [
-  ...featuredPackages,
+  ...featuredSuites,
   ...featuredSnippets,
   ...featuredUsecases,
 ];
@@ -44,7 +44,7 @@ const featured = [
       />
 
       <!-- Packages section -->
-      <Section client:only="svelte" title="Packages" data={packages} />
+      <Section client:only="svelte" title="Suites" data={suites} />
 
       <!-- Snippets section -->
       <Section client:only="svelte" title="Snippets" data={snippets} />
