@@ -1,23 +1,21 @@
 ---
-import { getCollection, type CollectionEntry } from "astro:content";
+import { getCollection } from "astro:content";
 
 import Input from "../components/ui/Input.svelte";
 import Section from "@/components/ui/Section.svelte";
 import Layout from "../layouts/Layout.astro";
 import Heading from "../components/layout/Heading.astro";
 import Scrollable from "@/components/layout/Scrollable.astro";
-import { collections } from "../content/config";
 
 const suites = await getCollection("suites");
-// const snippets = await getCollection("snippets");
 const usecases = await Promise.all(
-  (await getCollection("usecases")).map(async (it) => ({
+  (await getCollection("usecases")).map(async (it: any) => ({
     ...it,
     rendered: await it.render(),
   }))
 );
 const snippets = await Promise.all(
-  (await getCollection("snippets")).map(async (it) => ({
+  (await getCollection("snippets")).map(async (it: any) => ({
     ...it,
     rendered: await it.render(),
   }))
@@ -25,7 +23,7 @@ const snippets = await Promise.all(
 
 const mdFiles = usecases.concat(snippets);
 
-const featuredSuites = suites.filter((pkg) => pkg.data.featured);
+const featuredSuites = suites.filter((pkg: any) => pkg.data.featured);
 const featuredSnippets = snippets.filter((snippet) => snippet.data.featured);
 const featuredUsecases = usecases.filter((usecase) => usecase.data.featured);
 const featured = [

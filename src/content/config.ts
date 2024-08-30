@@ -13,7 +13,7 @@ export const suitesCollection = defineCollection({
 });
 
 export const snippetsCollection = defineCollection({
-  type: "data",
+  type: "content",
   schema: z.object({
     title: z.string(),
     description: z.string(),
