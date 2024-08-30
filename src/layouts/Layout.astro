@@ -25,11 +25,23 @@ const { title } = Astro.props;
 </html>
 
 <style is:global>
+  p code {
+    background: #222222;
+    color: #ffffff;
+    font-size: 0.8rem;
+    padding: 0.2rem 0.4rem;
+    border-radius: 0.3rem;
+  }
   pre {
+    margin: 1rem 0;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  pre code {
     max-width: max-content;
     margin: 1rem auto;
     font-size: 0.8rem;
-    padding: 1rem;
     border-radius: 1rem;
   }
   :root {
