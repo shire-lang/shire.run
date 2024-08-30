@@ -6,15 +6,24 @@ import Section from "@/components/ui/Section.svelte";
 import Layout from "../layouts/Layout.astro";
 import Heading from "../components/layout/Heading.astro";
 import Scrollable from "@/components/layout/Scrollable.astro";
+import { collections } from "../content/config";
 
 const suites = await getCollection("suites");
-const snippets = await getCollection("snippets");
+// const snippets = await getCollection("snippets");
 const usecases = await Promise.all(
   (await getCollection("usecases")).map(async (it) => ({
     ...it,
     rendered: await it.render(),
   }))
 );
+const snippets = await Promise.all(
+  (await getCollection("snippets")).map(async (it) => ({
+    ...it,
+    rendered: await it.render(),
+  }))
+);
+
+const mdFiles = usecases.concat(snippets);
 
 const featuredSuites = suites.filter((pkg) => pkg.data.featured);
 const featuredSnippets = snippets.filter((snippet) => snippet.data.featured);
@@ -55,7 +64,7 @@ const featured = [
 
     <!-- UGLY AS FUDGE, BUT IT WORKS -->
     {
-      usecases.map((usecase) => {
+      mdFiles.map((usecase: any) => {
         const { Content } = (usecase as any).rendered;
         return (
           <div id={usecase.id} class="hidden">

@@ -10,13 +10,14 @@
 
   import copy from "copy-text-to-clipboard";
 
-  import packageIcon from "@/assets/icon/package.svg";
+  import suiteIcon from "@/assets/icon/suite.svg";
   import snippetIcon from "@/assets/icon/snippet.svg";
   import usecaseIcon from "@/assets/icon/usecase.svg";
 
   function onUsecaseShow() {
     const usecase = document.getElementById(id);
-    const usecaseContainer = document.getElementById("usecase-container");
+    const usecaseContainer = document.getElementById("content-container");
+    console.log(usecase, usecaseContainer)
     if (usecaseContainer && usecase) {
       usecaseContainer.innerHTML = "";
       const content = usecase.cloneNode(true).childNodes;
@@ -34,13 +35,11 @@
 
   <img
     class="mx-auto max-w-20 type-icon"
-    src={type === "suites"
-      ? packageIcon.src
-      : type === "snippets"
-        ? snippetIcon.src
-        : type === "usecases"
-          ? usecaseIcon.src
-          : packageIcon.src}
+    src={type === "suites" ? suiteIcon.src
+       : type === "snippets" ? snippetIcon.src
+       : type === "usecases"? usecaseIcon.src
+       : suiteIcon.src
+    }
     alt="logo"
     width={64}
     height={64}
@@ -111,19 +110,21 @@
     </div>
   {/if}
 
-  {#if type === "usecases"}
+  {#if type === "usecases" || type === "snippets"}
     <div class="h-12"></div>
     <button on:click={onUsecaseShow}
             class="absolute bottom-2 left-2 right-2 h-10 bg-blue-500 text-white rounded-md p-2 hover:bg-blue-600 transition-colors"
-            popovertarget="snippet-popover">
+            popovertarget="content-popover">
       查看
     </button>
 
-    <div popover="auto" id="snippet-popover" class="shadow-2xl">
+    <div popover="auto" id="content-popover" class="shadow-2xl">
       <div class="popover-head flex flex-grow justify-between">
-        <div class="popover-title font-bold">Use Case</div>
+        <div class="popover-title font-bold">
+          {type === "usecases" ? "Usecase" : "Snippet"}
+        </div>
         <button class="popover-close" on:click={() => {
-          const popover = document.getElementById("snippet-popover");
+          const popover = document.getElementById("content-popover");
           if (popover) {
             popover.style.display = "none";
           }
@@ -131,7 +132,7 @@
         </button>
       </div>
       <div class="popover-content">
-        <div class="w-[1200px] h-[700px] bg-gray-100 markdown" id="usecase-container">
+        <div class="w-[1200px] h-[700px] bg-gray-100 markdown" id="content-container">
         </div>
       </div>
     </div>
@@ -139,7 +140,7 @@
 </div>
 
 <style>
-  #snippet-popover {
+  #content-popover {
     z-index: 10;
     border: #272b45 4px solid;
     border-radius: 8px;
@@ -147,19 +148,19 @@
     padding: 0;
   }
 
-  #snippet-popover .popover-head {
+  #content-popover .popover-head {
     height: 40px;
     background-color: rgba(4, 74, 48, 0.66);
     padding: 0 1rem;
   }
 
-  #snippet-popover .popover-title,
-  #snippet-popover button {
+  #content-popover .popover-title,
+  #content-popover button {
     line-height: 40px;
     color: #fff;
   }
 
-  #snippet-popover #usecase-container {
+  #content-popover #content-container {
     padding: 1rem;
     overflow-y: scroll;
   }
