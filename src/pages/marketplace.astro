@@ -21,7 +21,7 @@ const snippets = await Promise.all(
   }))
 );
 
-const mdFiles = usecases.concat(snippets);
+const mdxFiles = usecases.concat(snippets);
 
 const featuredSuites = suites.filter((pkg: any) => pkg.data.featured);
 const featuredSnippets = snippets.filter((snippet) => snippet.data.featured);
@@ -33,7 +33,7 @@ const featured = [
 ];
 ---
 
-<Layout title="Shire Run - Streamline your coding agent with Shire">
+<Layout title="Shire Run - Share your AI coding agentwith Shire">
   <Heading />
   <main>
     <Input
@@ -62,7 +62,7 @@ const featured = [
 
     <!-- UGLY AS FUDGE, BUT IT WORKS -->
     {
-      mdFiles.map((usecase: any) => {
+      mdxFiles.map((usecase: any) => {
         const { Content } = (usecase as any).rendered;
         return (
           <div id={usecase.id} class="hidden">

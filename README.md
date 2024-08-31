@@ -1,7 +1,7 @@
 # Shire Run - AI Community for Coding Agent.
 
 <p align="center">
-  <strong>Streamline your coding agent with Shire.</strong><br />
+  <strong>Share your AI coding agentwith Shire.</strong><br />
   Tools from the community to simplify coding tasks and automate processes
 </p>
 
