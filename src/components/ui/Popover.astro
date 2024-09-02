@@ -3,7 +3,7 @@
     <div class="popover-title font-bold" id="popover-title">
       <!-- INJECTED TITLE -->
     </div>
-    <button class="popover-btn-close">X </button>
+    <button id="popover-btn-close">X </button>
   </div>
   <div class="popover-content">
     <div
@@ -41,7 +41,7 @@
   }
 </style>
 
-<script>
+<script is:inline>
   const popoverBtnClose = document.getElementById("popover-btn-close");
   if (popoverBtnClose) {
     popoverBtnClose.addEventListener("click", () => {
