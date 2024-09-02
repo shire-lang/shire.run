@@ -1,0 +1,54 @@
+<div popover="auto" id="popover-container" class="shadow-2xl">
+  <div class="popover-head flex flex-grow justify-between">
+    <div class="popover-title font-bold" id="popover-title">
+      <!-- INJECTED TITLE -->
+    </div>
+    <button class="popover-btn-close">X </button>
+  </div>
+  <div class="popover-content">
+    <div
+      class="w-[1200px] h-[700px] bg-gray-100 markdown"
+      id="popover-content-container"
+    >
+      <!-- INJECTED CONTENT -->
+    </div>
+  </div>
+</div>
+
+<style>
+  #popover-container {
+    border: #272b45 4px solid;
+    border-radius: 8px;
+    overflow: hidden;
+    padding: 0;
+  }
+
+  #popover-container .popover-head {
+    height: 40px;
+    background-color: rgba(4, 74, 48, 0.66);
+    padding: 0 1rem;
+  }
+
+  #popover-container .popover-title,
+  #popover-container button {
+    line-height: 40px;
+    color: #fff;
+  }
+
+  #popover-container #popover-content-container {
+    padding: 1rem;
+    overflow-y: scroll;
+  }
+</style>
+
+<script>
+  const popoverBtnClose = document.getElementById("popover-btn-close");
+  if (popoverBtnClose) {
+    popoverBtnClose.addEventListener("click", () => {
+      const popover = document.getElementById("popover-container");
+      if (popover) {
+        popover.hidePopover();
+      }
+    });
+  }
+</script>

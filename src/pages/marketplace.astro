@@ -6,6 +6,7 @@ import Section from "@/components/ui/Section.svelte";
 import Layout from "../layouts/Layout.astro";
 import Heading from "../components/layout/Heading.astro";
 import Scrollable from "@/components/layout/Scrollable.astro";
+import Popover from "@/components/ui/Popover.astro";
 
 const suites = await getCollection("suites");
 const usecases = await Promise.all(
@@ -26,11 +27,7 @@ const mdxFiles = usecases.concat(snippets);
 const featuredSuites = suites.filter((pkg: any) => pkg.data.featured);
 const featuredSnippets = snippets.filter((snippet) => snippet.data.featured);
 const featuredUsecases = usecases.filter((usecase) => usecase.data.featured);
-const featured = [
-  ...featuredSuites,
-  ...featuredSnippets,
-  ...featuredUsecases,
-];
+const featured = [...featuredSuites, ...featuredSnippets, ...featuredUsecases];
 ---
 
 <Layout title="Shire Run - Share your AI coding agentwith Shire">
@@ -71,6 +68,9 @@ const featured = [
         );
       })
     }
+
+    <!-- EVEN UGLIER, BUT IT WORKS -->
+    <Popover />
   </main>
 </Layout>
 <style>

@@ -16,9 +16,10 @@
 
   function onUsecaseShow() {
     const usecase = document.getElementById(id);
-    const usecaseContainer = document.getElementById("content-container");
-    console.log(usecase, usecaseContainer)
-    if (usecaseContainer && usecase) {
+    const usecaseTitle = document.getElementById("popover-title");
+    const usecaseContainer = document.getElementById("popover-content-container");
+    if (usecaseTitle && usecaseContainer && usecase) {
+      usecaseTitle.innerHTML = `${title} <span class="bg-blue-500 text-white h-full text-sm px-2 py-1 rounded-md">${type}</span>`;
       usecaseContainer.innerHTML = "";
       const content = usecase.cloneNode(true).childNodes;
       usecaseContainer.append(...content);
@@ -114,57 +115,15 @@
     <div class="h-12"></div>
     <button on:click={onUsecaseShow}
             class="absolute bottom-2 left-2 right-2 h-10 bg-blue-500 text-white rounded-md p-2 hover:bg-blue-600 transition-colors"
-            popovertarget="content-popover">
+            popovertarget="popover-container">
       查看
     </button>
 
-    <div popover="auto" id="content-popover" class="shadow-2xl">
-      <div class="popover-head flex flex-grow justify-between">
-        <div class="popover-title font-bold">
-          {type === "usecases" ? "Usecase" : "Snippet"}
-        </div>
-        <button class="popover-close" on:click={() => {
-          const popover = document.getElementById("content-popover");
-          if (popover) {
-            popover.style.display = "none";
-          }
-        }}>X
-        </button>
-      </div>
-      <div class="popover-content">
-        <div class="w-[1200px] h-[700px] bg-gray-100 markdown" id="content-container">
-        </div>
-      </div>
-    </div>
   {/if}
 </div>
 
 <style>
-  #content-popover {
-    z-index: 10;
-    border: #272b45 4px solid;
-    border-radius: 8px;
-    overflow: hidden;
-    padding: 0;
-  }
-
-  #content-popover .popover-head {
-    height: 40px;
-    background-color: rgba(4, 74, 48, 0.66);
-    padding: 0 1rem;
-  }
-
-  #content-popover .popover-title,
-  #content-popover button {
-    line-height: 40px;
-    color: #fff;
-  }
-
-  #content-popover #content-container {
-    padding: 1rem;
-    overflow-y: scroll;
-  }
-
+ 
   .buttons {
     font-size: 0.7rem;
     height: 40px;
