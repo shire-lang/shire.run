@@ -17,7 +17,7 @@ export default defineConfig({
         {
           id: 'shire',
           scopeName: 'source.shire',
-          aliases: ['caddy'],
+          aliases: ['shire'],
           ...shireLang
         },
       ],
