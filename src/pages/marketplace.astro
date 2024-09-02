@@ -73,7 +73,7 @@ const featured = [...featuredSuites, ...featuredSnippets, ...featuredUsecases];
     <Popover />
   </main>
 </Layout>
-<style>
+<style is:global>
   main {
     margin: auto;
     display: grid;
@@ -88,5 +88,9 @@ const featured = [...featuredSuites, ...featuredSnippets, ...featuredUsecases];
 
   body {
     overflow: hidden;
+  }
+
+  .expressive-code {
+    margin-block: 1rem;
   }
 </style>
