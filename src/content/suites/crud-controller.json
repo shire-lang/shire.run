@@ -1,0 +1,7 @@
+{
+  "title": "AutoCRUD - GitHub",
+  "description": "AutoCRUD - 根据 GitHub issue 作为需求，分析本地 Java controller 代码，生成结合需求的 controller 代码",
+  "link": "https://static.shire.run/package/crud-controller.zip",
+  "installCmd": "curl --proto '=https' --tlsv1.2 -sSf https://sh.shire.run/ | sh -s -- package crud-controller",
+  "featured": true
+}
