@@ -1,6 +1,6 @@
 {
   "title": "IDE 中 SQL 生成",
-  "description": "根据 IDE 中连接的数据库表结构、GitHub Issue 作为需求系统，生成 SQL 语句",
+  "description": "根据 IDE 中连接的数据库表结构、GitHub Issue 作为需求系统，分析需求自动生成对应的 SQL 语句",
   "link": "https://static.shire.run/package/design-sql.zip",
   "installCmd": "curl --proto '=https' --tlsv1.2 -sSf https://sh.shire.run/ | sh -s -- package design-sql",
   "featured": true
