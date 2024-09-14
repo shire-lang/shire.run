@@ -1,6 +1,6 @@
 {
-  "title": "Swagger API 生成",
-  "description": "结合需求的 Swagger API 文档，生成对应的 API 代码；从代码生成 Swagger API 文档。",
+  "title": "API 设计、生成与文档",
+  "description": "从已有代码引入 Swagge Doc、生成 Swagger API 文档；结合开发需求的 Swagger API 文档，生成对应的 API 代码；",
   "link": "https://static.shire.run/package/swagger.zip",
   "installCmd": "curl --proto '=https' --tlsv1.2 -sSf https://sh.shire.run/ | sh -s -- package swagger",
   "featured": true
