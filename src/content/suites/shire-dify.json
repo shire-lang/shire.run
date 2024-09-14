@@ -1,6 +1,6 @@
 {
-  "title": "Shire Dify 示例",
-  "description": "结合 Dify 中的自定义 Agent，实现从代码生成数据库表、 API、找到代码变更点等。",
+  "title": "云端智能体结合",
+  "description": "连接 Dify 中自定义的 AI Agent，实现从开发需求生成数据库表、REST API、找到对应代码变更点等。",
   "link": "https://static.shire.run/package/shire-dify.zip",
   "installCmd": "curl --proto '=https' --tlsv1.2 -sSf https://sh.shire.run/ | sh -s -- package shire-dify",
   "featured": true

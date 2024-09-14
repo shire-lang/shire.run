@@ -1,7 +1,0 @@
-{
-  "title": "代码问答 RAG",
-  "description": "基于关键词的查询扩展方式的代码智能体，总体分为查询转换 + 语义搜索、检索结果总结两个步骤。",
-  "link": "https://static.shire.run/package/semantic-search.zip",
-  "installCmd": "curl --proto '=https' --tlsv1.2 -sSf https://sh.shire.run/ | sh -s -- package semantic-search",
-  "featured": true
-}
