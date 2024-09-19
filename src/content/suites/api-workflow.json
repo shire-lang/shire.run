@@ -1,0 +1,7 @@
+{
+  "title": "API 开发标准化",
+  "description": "标准化的 API 开发示例，从需求到API 设计与文档、Mock 服务器，再到单元测试、集成测试、端到端的完整示例。",
+  "link": "https://static.shire.run/package/api-workflow.zip",
+  "installCmd": "curl --proto '=https' --tlsv1.2 -sSf https://sh.shire.run/ | sh -s -- package api-workflow",
+  "featured": true
+}
